@@ -1,1 +1,262 @@
-test
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        a {
+            transition: color 0.3s ease;
+        }
+
+        p, details {
+            padding-bottom: 5px;
+        }
+
+        .warning-card,
+        .error-card {
+            display: flex;
+            align-items: flex-start;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            width: auto;
+        }
+
+        .dialog-content h3 {
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+        }
+
+        .dialog-content p {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding-bottom: 0;
+        }
+
+        .icon {
+            margin-right: 10px;
+        }
+
+        details {
+            margin: 30px 5px 0 5px;
+            padding-bottom: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        summary {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            border: none;
+            outline: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            position: relative;
+            border-radius: 16px;
+        }
+
+        summary::marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "expand_more";
+            font-family: 'Material Icons';
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        details > * {
+            padding: 0 16px 0 16px;
+        }
+
+        details > p {
+            padding: 8px 16px 8px 16px;
+        }
+
+        /* Светлая тема */
+        body {
+            background-color: #FFFFFF;
+            color: #333333;
+        }
+
+        a {
+            color: #f04e4e;
+        }
+
+        .warning-card {
+            background-color: #fbe3a1;
+        }
+
+        .error-card {
+            background-color: #f04e4e;
+        }
+
+        .warning-card .dialog-content h3,
+        .warning-card .dialog-content p {
+            color: #6d511e;
+        }
+
+        .warning-card .custom-icon path {
+            fill: #6d511e;
+        }
+
+        details {
+            border: 1px solid #000000;
+            background-color: #FFFFFF;
+        }
+
+        summary {
+            background-color: #FFFFFF;
+            color: #333;
+        }
+
+        summary::after {
+            color: #000000;
+        }
+
+        details[open] summary {
+            background-color: #e0e0e0;
+            color: #000;
+        }
+
+        summary:hover {
+            background-color: #f0f0f0;
+        }
+
+        .error-card .dialog-content h3,
+        .error-card .dialog-content p,
+        .custom-error-icon path {
+            color: #FFFFFF;
+            fill: #FFFFFF;
+        }
+
+        /* Темная тема */
+        body.force-dark {
+            background-color: #252525;
+            color: #E0E0E0;
+        }
+
+        body.force-dark a {
+            color: #ff726f;
+        }
+
+        body.force-dark .warning-card {
+            background-color: #a38226;
+        }
+
+        body.force-dark .error-card {
+            background-color: #b02d2d;
+        }
+
+        body.force-dark .warning-card .dialog-content h3,
+        body.force-dark .warning-card .dialog-content p {
+            color: #fff5d7;
+        }
+
+        body.force-dark .warning-card .custom-icon path {
+            fill: #fff5d7;
+        }
+
+        body.force-dark details {
+            border: 1px solid #999999;
+            background-color: #333333;
+        }
+
+        body.force-dark summary {
+            background-color: #333333;
+            color: #E0E0E0;
+        }
+
+        body.force-dark summary::after {
+            color: #E0E0E0;
+        }
+        
+        body.force-dark details[open] summary {
+            background-color: #444444;
+            color: #FFFFFF;
+        }
+
+        body.force-dark summary:hover {
+            background-color: #555555;
+        }
+        
+    </style>
+</head>
+<body>
+
+
+<div class="error-card">
+    <span class="icon">
+        <svg class="custom-error-icon" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
+            <g>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+            </g>
+        </svg>
+    </span>
+    <div class="dialog-content">
+        <h3>Проблемы в работе приложения</h3>
+        <p>Мы уже работаем над устранением неполадок. Приносим извинения за неудобства!</p>
+    </div>
+</div>
+
+
+<p><b>Общие рекомендации</b></p>
+<div id="main-content">
+    <p>1. Проверьте стабильность интернет-соединения. Возможно, возникли неполадки у вашего интернет-провайдера</p>
+    <p>2. Возможно, возникли неполадки с нашей стороны или проводятся технические работы. Проверьте информацию в наших социальных сетях <a href="https://t.me/anixart_tv">Telegram</a> и <a href="https://vk.com/anixart_tv">ВКонтакте</a></p>
+    <p>3. Попробуйте перезагрузить устройство или переустановить приложение <a href="https://anixart.tv/">с нашего сайта</a></p>
+    <p>4. Воспользуйтесь VPN, скачать можно <a href="https://play.google.com/store/search?q=vpn">из Google Play</a></p>
+</div>
+
+<details>
+    <summary>Информация о блокировке в Украине</summary>
+    <p>Доступ к приложению ограничивается интернет-провайдерами на территории Украины. Если вы испытываете проблемы, перейдите в «Настройки» → «Дополнительно» и включите опцию «Альтернативное соединение». Если это не поможет, отключите эту опцию и воспользуйтесь VPN.</p>
+</details>
+
+<script>
+    function setTheme(isDark) {
+        const body = document.body;
+        if (isDark) {
+            body.classList.add('force-dark');
+        }
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const darkParam = urlParams.get('dark');
+
+    if (darkParam !== null) {
+        setTheme(darkParam === 'true');
+    }
+</script>
+</body>
+</html>
